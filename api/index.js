@@ -12,8 +12,7 @@ app.get('/api', (req, res) => {
 
 app.get('/api/todo', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
-    res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
-    res.json([{
+    res.end(JSON.stringify([{
         id: '12',
         name: 'post 1',
         priority: 'urgent',
@@ -32,7 +31,7 @@ app.get('/api/todo', (req, res) => {
             id: '15',
             name: "4th task name",
             priority: 'regular'
-        }])
+        }]))
 })
 
 module.exports = app;
