@@ -2,9 +2,6 @@ const app = require('express')()
 const cors = require('cors')
 
 app.use(cors())
-// app.get('/', (req, res) => {
-//     res.send('It\'s alive!')
-// })
 
 app.get('/api', (req, res) => {
     const path = `/api/todo`;
@@ -14,6 +11,8 @@ app.get('/api', (req, res) => {
 });
 
 app.get('/api/todo', (req, res) => {
+    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
     res.json([{
         id: '12',
         name: 'post 1',

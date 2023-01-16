@@ -11,6 +11,7 @@ const TodoProvider: FC<PropsWithChildren> = ({children}) => {
     useEffect(() => {
         if (init)
             localStorage.setItem('todo', JSON.stringify(list))
+        // eslint-disable-next-line
     }, [list])
 
 
@@ -20,14 +21,14 @@ const TodoProvider: FC<PropsWithChildren> = ({children}) => {
             let data = JSON.parse(localStorage.getItem('todo') || '[]') as ITask[]
             if (!data.length) {
                 // console.info('API fetching...')
-                data = await fetch('http://localhost:8000/api/todo', {
+                data = await fetch('/api/todo', {
                     method: 'GET',
                     headers: {
                         'Accept': 'application/json',
                     }
                 })
                     .then((data: any) => (data.json() || []) as ITask[])
-                    .catch(e => {
+                    .catch(() => {
                         console.error("API error!")
                         return [] as ITask[]
                     })
