@@ -1,0 +1,64 @@
+@use "../../../styles/base";
+
+.TaskList {
+  @include base.boxsizing;
+  border: solid 1px #eee;
+  @include base.rounded-corners(.25rem);
+
+
+  .filter {
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: flex-start;
+    padding: .5rem;
+    gap: .5rem;
+    background-color: rgb(242, 245, 255);
+    border-bottom: solid 1px #ddd;
+    > :first-child {
+      width: 70%;
+    }
+    > :last-child {
+      width: 30%;
+    }
+  }
+
+
+
+  .table {
+    width: 100%;
+    border-spacing: 0;
+
+
+    > thead {
+      text-align: left;
+      background-color: rgb(230, 237, 254);
+
+      > tr > th {
+        margin: 0;
+        padding: .5rem;
+        color: #666;
+        font-size: .9rem;
+        font-weight: 500;
+      }
+    }
+
+    >tbody {
+      > tr {
+        &:nth-child(2n) {
+          background-color: #f8f8f8;
+        }
+        > td {
+          margin: 0;
+          padding: 1rem .5rem;
+          color: #666;
+          font-size: .9rem;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+}
+
+

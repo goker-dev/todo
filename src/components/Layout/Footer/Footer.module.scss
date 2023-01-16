@@ -1,0 +1,13 @@
+@use "../../../styles/base";
+
+.footer {
+  @include base.boxsizing;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(246, 246, 246);
+  font-size: .75rem;
+  color: #555;
+  padding: .25rem .5rem;
+}
+
+

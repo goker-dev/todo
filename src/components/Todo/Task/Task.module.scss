@@ -1,0 +1,8 @@
+@use "../../../styles/base";
+
+.Task {
+  @include base.boxsizing;
+
+}
+
+

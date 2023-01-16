@@ -1,0 +1,32 @@
+@use "src/styles/base";
+
+@mixin badge($color:base.$color-white, $bg:base.$color-gray-dark) {
+  @include base.boxsizing;
+  @include base.rounded-corners(.25rem);
+  padding: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-decoration: none;
+  font-style: normal;
+  color: $color;
+  background-color: $bg;
+}
+
+.urgent {
+  @include badge($bg: base.$color-pink);
+}
+
+.regular {
+  @include badge($bg: base.$color-yellow);
+}
+
+.trivial {
+  @include badge($bg: base.$color-blue);
+}
+
+.git {
+  @include badge($bg: rgb(254, 231, 228), $color: rgb(255, 74, 57));
+  font: 100% base.$font-serif;
+  padding: 0.3rem;
+}
+

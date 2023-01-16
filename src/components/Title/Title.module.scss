@@ -1,0 +1,37 @@
+@use "src/styles/base";
+
+.sans {
+  font-family: base.$font-sans;
+  font-weight: 600;
+}
+
+.serif {
+  font-family: base.$font-serif;
+  font-weight: 500;
+}
+
+.h1 {
+  fonst-size: 2.5rem;
+}
+
+.h2 {
+  fonst-size: 2rem;
+}
+
+.h3 {
+  fonst-size: 1.75rem;
+}
+
+.h4 {
+  fonst-size: 1.5rem;
+}
+
+.h5 {
+  fonst-size: 1.25rem;
+}
+
+.h6 {
+  fonst-size: 1rem;
+}
+
+

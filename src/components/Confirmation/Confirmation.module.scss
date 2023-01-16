@@ -1,0 +1,33 @@
+@use "src/styles/base";
+
+.Confirmation {
+  @include base.boxsizing;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+
+  > i {
+    font-size: 3rem;
+    color: base.$color-pink;
+  }
+
+  .actions {
+    display: flex;
+    gap: .5rem;
+    width: 100%;
+
+    > button {
+      display: block;
+      width: 50%;
+    }
+  }
+
+}
+
+.dialog {
+  min-height: auto !important;
+}
+
+

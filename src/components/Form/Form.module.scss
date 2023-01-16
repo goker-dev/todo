@@ -1,0 +1,65 @@
+@use "src/styles/base";
+
+@mixin inputItem($color:#888, $bg:#fff) {
+  @include base.boxsizing;
+  @include base.rounded-corners(.2rem);
+  border: solid 1px #ddd;
+  padding: 10px 5px;
+  font-size: 0.9rem;
+  color: $color;
+  background-color: $bg;
+  width: 100%;
+  &:disabled {
+    background-color: base.$color-gray-light;
+  }
+}
+
+.form {
+
+  .label {
+    font-size: 0.8rem;
+    color: base.$color-gray-dark;
+  }
+
+  .input {
+    @include inputItem();
+  }
+
+  .select {
+    @include inputItem();
+    padding: 9px 5px;
+  }
+
+  .submit {
+    padding: 11px 5px;
+  }
+
+
+  :global {
+    .formItemError {
+      margin: 0;
+      padding: 1px 3px;
+      font-size: 0.75rem;
+      color: red;
+    }
+  }
+}
+
+.button {
+  @include base.button();
+
+  &-submit {
+    @include base.button($color: #fff, $bg: base.$color-blue);
+    width: 100%;
+  }
+
+  &-save, &-confirm {
+    @include base.button($color: #fff, $bg: base.$color-pink);
+  }
+
+  &-cancel {
+  }
+
+  &-icon {
+  }
+}

@@ -1,0 +1,13 @@
+@use "../../../styles/base";
+
+.header {
+  @include base.boxsizing;
+  display: flex;
+  border-bottom: 1px solid #eee;
+
+  .logo {
+    padding: .25rem;
+  }
+}
+
+
