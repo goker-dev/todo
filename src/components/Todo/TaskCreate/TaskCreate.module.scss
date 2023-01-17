@@ -1,6 +1,6 @@
-@use "../../../styles/base";
+@use "src/styles/base";
 
-.TaskForm {
+.TaskCreate {
   @include base.boxsizing;
 
   .formInline {

@@ -1,12 +1,8 @@
-import { MouseEventHandler, useContext, useEffect, useState } from 'react'
+import { MouseEventHandler, useEffect, useState } from 'react'
 import { Title } from 'components/Title/Title'
-import { Form, Input, Select } from 'components/Form'
-import { Dialog } from 'components/Dialog/Dialog'
-import { Confirmation } from 'components/Confirmation/Confirmation'
-import { TaskEdit } from '../TaskEdit/TaskEdit'
+import { TaskFilter } from '../TaskFilter/TaskFilter'
 import { Task } from '../Task/Task'
 import { ITask } from 'types/Task'
-import { TodoContext, priorities } from '../TodoContext'
 import styles from './TaskList.module.scss'
 
 const sorting = (list: ITask[], field = 'name') => {
@@ -18,18 +14,15 @@ const sorting = (list: ITask[], field = 'name') => {
   }
   return [...list]
 }
-export const TaskList = () => {
-  const context = useContext(TodoContext)
+
+type Props = {
+  list: ITask[]
+  handleAction: MouseEventHandler
+}
+export const TaskList = ({ list: _list = [], handleAction }: Props) => {
+  const [list, setList] = useState<ITask[]>(_list)
   const [order, setOrder] = useState('priority')
   const [filter, setFilter] = useState({ name: '', priority: '' })
-  const [list, setList] = useState<ITask[]>([])
-  const [isDelete, setDelete] = useState<string>('')
-  const [isEdit, setEdit] = useState<string>('')
-
-  const handleAction: MouseEventHandler<HTMLButtonElement> = e =>
-    e.currentTarget.dataset['action'] === 'delete'
-      ? setDelete(e.currentTarget.dataset['id'] || '')
-      : setEdit(e.currentTarget.dataset['id'] || '')
 
   const handleSort: MouseEventHandler<HTMLTableCaptionElement> = e =>
     setOrder(e.currentTarget.dataset['field'] || '')
@@ -37,10 +30,10 @@ export const TaskList = () => {
   let handleFilter = async (data: any) => setFilter(data)
 
   useEffect(() => {
-    if (context?.list?.length)
+    if (_list.length)
       setList(
         sorting(
-          context.list.filter(
+          _list.filter(
             i =>
               i.name.toLowerCase().includes(filter.name.toLowerCase()) &&
               i.priority.includes(filter.priority.toLowerCase())
@@ -48,33 +41,13 @@ export const TaskList = () => {
           order
         )
       )
-  }, [filter, order, context.list])
+  }, [filter, order, _list])
 
   return (
     <>
       <Title level="h3">Job List</Title>
-      <div data-testid="filter" className={styles.TaskList}>
-        <Form onChange={handleFilter}>
-          <div className={styles.filter}>
-            <div>
-              <Input
-                name="name"
-                placeholder="Job Name"
-                data-testid="filter.name"
-              />
-            </div>
-            <div>
-              <Select
-                name="priority"
-                options={[
-                  { label: 'Priority (all)', value: '' },
-                  ...priorities,
-                ]}
-                data-testid="filter.priority"
-              />
-            </div>
-          </div>
-        </Form>
+      <div className={styles.TaskList}>
+        <TaskFilter handleFilter={handleFilter} />
         <table className={styles.table}>
           <thead>
             <tr>
@@ -100,21 +73,6 @@ export const TaskList = () => {
           </tbody>
         </table>
       </div>
-
-      {isDelete && (
-        <Confirmation
-          onConfirm={() => context.deleteTask(isDelete) && setDelete('')}
-          onCancel={() => setDelete('')}
-          title="Are you sure you want to delete it?"
-          confirmText="Approve"
-          cancelText="Cancel"
-        />
-      )}
-      {isEdit && (
-        <Dialog>
-          <TaskEdit id={isEdit} onClose={() => setEdit('')} />
-        </Dialog>
-      )}
     </>
   )
 }

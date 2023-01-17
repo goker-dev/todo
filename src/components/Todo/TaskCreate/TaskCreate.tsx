@@ -3,9 +3,9 @@ import * as Yup from 'yup'
 import { Title } from 'components/Title/Title'
 import { Form, Input, Select, Submit } from 'components/Form'
 import { TodoContext, priorities } from '../TodoContext'
-import styles from './TaskForm.module.scss'
+import styles from './TaskCreate.module.scss'
 
-export const TaskForm = () => {
+export const TaskCreate = () => {
   const context = useContext(TodoContext)
   const schema = Yup.object().shape({
     name: Yup.string()
@@ -20,7 +20,7 @@ export const TaskForm = () => {
   }
 
   return (
-    <div className={styles.TaskForm}>
+    <div className={styles.TaskCreate}>
       <Title level="h3">Create New Job</Title>
       <Form
         schema={schema}

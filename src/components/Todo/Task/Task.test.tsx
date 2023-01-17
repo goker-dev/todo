@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { Task } from './Task'
-import { ITask } from '../../../types/Task'
+import { ITask } from 'types/Task'
 
 test('task loads', () => {
   const data: ITask = { id: '123', name: 'task title', priority: 'urgent' }
