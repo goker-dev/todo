@@ -1,8 +1,36 @@
 
-.icon-trash-empty:before { content: '\e800'; } /* '' */
-.icon-pencil:before { content: '\e801'; } /* '' */
-.icon-cancel:before { content: '\e802'; } /* '' */
-.icon-search:before { content: '\e803'; } /* '' */
-.icon-warning-empty:before { content: '\e804'; } /* '' */
-.icon-spin2:before { content: '\e831'; } /* '' */
-.icon-github-circled:before { content: '\f09b'; } /* '' */
+.icon-trash-empty:before {
+    content: '\e800';
+}
+
+/* '' */
+.icon-pencil:before {
+    content: '\e801';
+}
+
+/* '' */
+.icon-cancel:before {
+    content: '\e802';
+}
+
+/* '' */
+.icon-search:before {
+    content: '\e803';
+}
+
+/* '' */
+.icon-warning-empty:before {
+    content: '\e804';
+}
+
+/* '' */
+.icon-spin2:before {
+    content: '\e831';
+}
+
+/* '' */
+.icon-github-circled:before {
+    content: '\f09b';
+}
+
+/* '' */

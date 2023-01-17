@@ -1,9 +1,9 @@
-@use "../../../styles/base";
+@use "src/styles/base";
 
-.container {
+.Container {
   @include base.boxsizing;
   padding: 1rem;
-  height: 100%;
+  flex-grow: 1;
 }
 
 

@@ -1,11 +1,13 @@
-import React from "react";
-import {TodoProvider} from "./TodoContext";
-import {TaskForm} from "./TaskForm/TaskForm";
-import {TaskList} from "./TaskList/TaskList";
+import React from 'react'
+import { TodoProvider } from './TodoContext'
+import { TaskForm } from './TaskForm/TaskForm'
+import { TaskList } from './TaskList/TaskList'
 
-export const Todo = () => <div data-testid="todo">
+export const Todo = () => (
+  <div data-testid="todo">
     <TodoProvider>
-        <TaskForm/>
-        <TaskList/>
+      <TaskForm />
+      <TaskList />
     </TodoProvider>
-</div>
+  </div>
+)

@@ -12,6 +12,9 @@
   &:disabled {
     background-color: base.$color-gray-light;
   }
+  &::placeholder {
+    color: #aaa;
+  }
 }
 
 .form {
@@ -34,6 +37,13 @@
     padding: 11px 5px;
   }
 
+  &.loading {
+    .submit {
+      color: base.$color-gray-dark;
+      background-color: base.$color-gray-light;
+      pointer-events: none !important;
+    }
+  }
 
   :global {
     .formItemError {

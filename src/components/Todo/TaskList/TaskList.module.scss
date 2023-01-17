@@ -1,4 +1,4 @@
-@use "../../../styles/base";
+@use "src/styles/base";
 
 .TaskList {
   @include base.boxsizing;
@@ -7,6 +7,7 @@
 
 
   .filter {
+    @include base.boxsizing;
     display: flex;
     flex-direction: row;
     justify-items: center;
@@ -15,20 +16,29 @@
     gap: .5rem;
     background-color: rgb(242, 245, 255);
     border-bottom: solid 1px #ddd;
+
     > :first-child {
-      width: 70%;
+      width: 50%;
     }
+
     > :last-child {
-      width: 30%;
+      width: 50%;
+    }
+
+    @media screen and (min-width: base.$screen-medium) {
+      > :first-child {
+        width: 70%;
+      }
+      > :last-child {
+        width: 30%;
+      }
     }
   }
-
 
 
   .table {
     width: 100%;
     border-spacing: 0;
-
 
     > thead {
       text-align: left;
@@ -43,11 +53,12 @@
       }
     }
 
-    >tbody {
+    > tbody {
       > tr {
         &:nth-child(2n) {
           background-color: #f8f8f8;
         }
+
         > td {
           margin: 0;
           padding: 1rem .5rem;

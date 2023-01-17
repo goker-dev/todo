@@ -1,52 +1,25 @@
 @use "base";
 @import '../assets/fontello/css/fontello.css';
 
-body {
+body, ul, ol {
   margin: 0;
-  background-color: #dddddd;
-  font-family: base.$font-sans;
+}
+
+body {
+  font: 100% base.$font-sans;
+  //background-color: #dddddd;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100vh
 }
 
 a {
   text-decoration: none;
 }
 
-ul, ol {
-  margin: 0;
-}
 
-.App {
-  margin: 0 auto;
-  display: flex;
-  height: 100vh;
-  flex-direction: column;
-  width: 1000px;
-  background-color: #fff;
-  font: 100% base.$font-sans
-}
-
-//@media (prefers-reduced-motion: no-preference) {
-//  .App-logo {
-//    animation: App-logo-spin infinite 20s linear;
-//  }
-//}
-//
-//@keyframes App-logo-spin {
-//  from {
-//    transform: rotate(0deg);
-//  }
-//  to {
-//    transform: rotate(360deg);
-//  }
-//}
-//
-//.App-header {
-//  background-color: #282c34;
-//  min-height: 100vh;
-//  display: flex;
-//  flex-direction: column;
-//  align-items: center;
-//  justify-content: center;
-//  font-size: calc(10px + 2vmin);
-//  color: white;
-//}

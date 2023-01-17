@@ -2,19 +2,18 @@
 
 .Dialog {
   @include base.boxsizing;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 
-
   .overlay {
-    position: absolute;
-    width: 100%;
+    position: fixed;
+    width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, .5);
   }
@@ -22,11 +21,17 @@
   .container {
     position: relative;
     @include base.rounded-corners(.25rem);
+    margin: 1rem;
     padding: 1rem;
     background-color: #fff;
-    min-width: 360px;
+
+    min-width: 300px;
+    min-height: 150px;
     max-width: 100%;
-    min-height: 200px;
+    @media screen and (min-width: base.$screen-small) {
+      min-width: 360px;
+      min-height: 200px;
+    }
   }
 
 }

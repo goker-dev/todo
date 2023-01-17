@@ -1,18 +1,18 @@
-import React from 'react';
+import React from 'react'
 import 'styles/app.scss'
-import {Header, Container, Footer} from "./components/Layout";
-import {Todo} from "./components/Todo";
+import { Container, Footer, Header, Layout } from './components/Layout'
+import { Todo } from './components/Todo'
 
 function App() {
-    return (
-        <div className="App">
-            <Header/>
-            <Container>
-                <Todo/>
-            </Container>
-            <Footer/>
-        </div>
-    );
+  return (
+    <Layout>
+      <Header />
+      <Container>
+        <Todo />
+      </Container>
+      <Footer />
+    </Layout>
+  )
 }
 
-export default App;
+export default App
