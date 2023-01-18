@@ -1,4 +1,4 @@
-import { HTMLProps, useRef, useState } from 'react'
+import { HTMLProps, useState } from 'react'
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { AnyObjectSchema } from 'yup'
@@ -20,8 +20,8 @@ export const Form = ({
   schema = Yup.object().shape({}),
   onSubmit = () => null,
   onChange,
+  ...props
 }: Props) => {
-  const ref = useRef<HTMLFormElement>(null)
   const [loading, setLoading] = useState('')
 
   const methods = useForm<any>({
@@ -49,7 +49,7 @@ export const Form = ({
       defaultValues={defaultValues}
       handleFormChange={handleFormChange}>
       <form
-        ref={ref}
+        {...props}
         className={`${styles.form} ${styles[loading]} ${className}`}
         onSubmit={methods.handleSubmit(handleSubmit)}
         onChange={handleFormChange}>

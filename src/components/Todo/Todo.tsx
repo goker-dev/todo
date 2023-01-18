@@ -31,8 +31,6 @@ const App = () => {
     [context.list]
   )
 
-  console.log('context.list', context.list)
-
   return (
     <div data-testid="todo">
       <TaskCreate />

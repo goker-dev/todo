@@ -1,5 +1,5 @@
 import React from 'react'
-import { fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { Todo } from './Todo'
 
 beforeAll(() => {
@@ -47,15 +47,13 @@ test('create, sort, filter and delete task', async () => {
   const priority = screen.getByTestId('create.priority')
   fireEvent.change(name, { target: { value: data.name } })
   fireEvent.change(priority, { target: { value: data.priority } })
-  fireEvent.click(screen.getByTestId('create.submit'))
-  await screen.findByText(data.name)
-  const task = screen.getByText(data.name)
+  // eslint-disable-next-line testing-library/no-unnecessary-act
+  await act(() => {
+    fireEvent.click(screen.getByTestId('create.submit'))
+  })
+  // await screen.findByText(data.name)
+  const task = await screen.findByText(data.name)
   expect(task).toBeInTheDocument()
-
-  fireEvent.change(name, { target: { value: data.name } })
-  fireEvent.change(priority, { target: { value: data.priority } })
-  fireEvent.click(screen.getByTestId('create.submit'))
-  await screen.findByText(data.name)
 
   // filter
   fireEvent.change(screen.getByTestId('filter.name'), {
